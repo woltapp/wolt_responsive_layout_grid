@@ -1,0 +1,25 @@
+name: wolt_responsive_layout_grid_example
+description: Example that demonstrate how to use the WoltResponsiveLayoutGrid package..
+version: 0.1.0
+publish_to: 'none'
+environment:
+  sdk: '>=2.19.6 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  equatable: ^2.0.5
+  wolt_responsive_layout_grid:
+    path: ../
+
+dev_dependencies:
+  lints: ^2.0.1
+  test: ^1.24.2
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - lib/assets/images/
+    - lib/assets/fonts/

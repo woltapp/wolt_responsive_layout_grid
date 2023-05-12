@@ -1,0 +1,1 @@
+enum WoltScreenSize { small, large }
