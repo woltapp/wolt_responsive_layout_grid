@@ -43,7 +43,13 @@ class CoffeeOrderListItemTile extends StatelessWidget {
                       SizedBox(
                         height: 56,
                         child: OutlinedButton(
-                          child: Center(child: Text(step.actionName)),
+                          child: Center(
+                            child: Text(
+                              step.actionName,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                           onPressed: onTap,
                         ),
                       ),
@@ -87,6 +93,8 @@ class _CoffeeOrderListItemDetails extends StatelessWidget {
                   color: DemoAppColors.white,
                   fontWeight: FontWeight.bold,
                 ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],
