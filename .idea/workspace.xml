@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6715740-bb6c-4e5b-a6e5-eefb79f68892" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/example/lib/entities/mock_coffee_orders.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/entities/mock_coffee_orders.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +55,50 @@
       <recent name="$PROJECT_DIR$/example/lib/home/small_screen" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/lib/src" />
       <recent name="$PROJECT_DIR$/example/lib/home/online/large_screen" />
       <recent name="$PROJECT_DIR$/example/lib/home/online/small_screen" />
-      <recent name="$PROJECT_DIR$/example/lib/entities" />
-      <recent name="$PROJECT_DIR$/example/lib/home/online/widgets" />
-      <recent name="$PROJECT_DIR$/example/lib/home/online" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flutter Test.Centered layout with gutter for 3-column group">
     <configuration name="example" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
       <method v="2" />
     </configuration>
+    <configuration name="3:3:2 layout with gutter for 3-column group" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="3:3:2 layout with gutter for 3-column group" />
+      <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Centered layout with gutter for 3-column group" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Centered layout with gutter for 3-column group" />
+      <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="calculateColumnGroupWidthInResponsiveLayoutGrid" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="calculateColumnGroupWidthInResponsiveLayoutGrid" />
+      <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="return zero if the total column count is zero" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="return zero if the total column count is zero" />
+      <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter Test.Centered layout with gutter for 3-column group" />
+        <item itemvalue="Flutter Test.calculateColumnGroupWidthInResponsiveLayoutGrid" />
+        <item itemvalue="Flutter Test.return zero if the total column count is zero" />
+        <item itemvalue="Flutter Test.3:3:2 layout with gutter for 3-column group" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
