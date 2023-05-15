@@ -24,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late ValueNotifier<bool> _isStoreOnlineNotifier;
   late CoffeeMakerStep _selectedStepForBottomNavigationBar;
+  late bool _isOverlayVisible;
 
   Widget? get _bottomNavigationBar {
     switch (context.screenSize) {
@@ -44,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _isOverlayVisible = false;
     _isStoreOnlineNotifier = ValueNotifier(widget.isStoreOnline);
     _selectedStepForBottomNavigationBar = CoffeeMakerStep.grind;
   }
@@ -54,9 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            WoltTopBar(
-              selectedStepForBottomNavigationBar: _selectedStepForBottomNavigationBar,
-              isStoreOnlineNotifier: _isStoreOnlineNotifier,
+            GestureDetector(
+              onTap: () {
+                setState(() => _isOverlayVisible = !_isOverlayVisible);
+              },
+              child: WoltTopBar(
+                selectedStepForBottomNavigationBar: _selectedStepForBottomNavigationBar,
+                isStoreOnlineNotifier: _isStoreOnlineNotifier,
+              ),
             ),
             Expanded(
               child: ValueListenableBuilder(
@@ -68,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? StoreOnlineContent(
                             groupedCoffeeOrders: widget.groupedCoffeeOrders,
                             selectedStepForBottomNavigationBar: _selectedStepForBottomNavigationBar,
+                            isOverlayVisible: _isOverlayVisible,
                           )
                         : StoreOfflineContent(isStoreOnlineNotifier: _isStoreOnlineNotifier),
                   );

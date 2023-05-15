@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6715740-bb6c-4e5b-a6e5-eefb79f68892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/example/lib/entities/grouped_coffee_orders.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/entities/mock_coffee_orders.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/home/offline/store_offline_content.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/home/online/store_online_content.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/coffee_order_list_widget.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/large_screen_coffee_order_list_section.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/extensions/build_context_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/entities/coffee_maker_step.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/entities/coffee_maker_step.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid_test_overlay.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/home/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/mock/mock_coffee_orders.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/small_screen/home_screen_small_width_content.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/coffee_order_list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/coffee_order_list_container.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/coffee_order_list_item_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/coffee_order_list_item_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/empty_coffee_order_list_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/empty_coffee_order_list_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/home_screen_bottom_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/home_screen_bottom_navigation_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/store_open_close_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/widgets/store_online_status_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/home/online/store_online_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/store_online_content.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/home/online/widgets/home_screen_bottom_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/widgets/home_screen_bottom_navigation_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/utils/responsive_layout_grid_utils.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/wolt_responsive_layout_grid.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid_content.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/utils/responsive_layout_grid_utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils/responsive_layout_grid_utils.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,18 +47,18 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/cagatayulusoy/wolt/oss/wolt-responsive-layout-grid/example/lib/home/widgets",
+    "last_opened_file_path": "/Users/cagatayulusoy/wolt/oss/wolt-responsive-layout-grid/lib/src",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/src" />
       <recent name="$PROJECT_DIR$/example/lib/home/widgets" />
       <recent name="$PROJECT_DIR$/example/lib/home/large_screen" />
       <recent name="$PROJECT_DIR$/example/lib/entities" />
       <recent name="$PROJECT_DIR$/example/lib/home/small_screen" />
-      <recent name="$PROJECT_DIR$/example/lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/example/lib/entities" />
@@ -116,11 +103,6 @@
           <url>file://$PROJECT_DIR$/example/lib/home/online/widgets/coffee_order_list_item_tile.dart</url>
           <line>16</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/example/lib/home/home_screen.dart</url>
-          <line>52</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

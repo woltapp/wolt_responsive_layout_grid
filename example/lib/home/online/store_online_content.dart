@@ -13,11 +13,13 @@ class StoreOnlineContent extends StatefulWidget {
   const StoreOnlineContent({
     required this.selectedStepForBottomNavigationBar,
     required this.groupedCoffeeOrders,
+    required this.isOverlayVisible,
     super.key,
   });
 
   final CoffeeMakerStep selectedStepForBottomNavigationBar;
   final GroupedCoffeeOrders groupedCoffeeOrders;
+  final bool isOverlayVisible;
 
   @override
   State<StoreOnlineContent> createState() => _StoreOnlineContentState();
@@ -64,6 +66,7 @@ class _StoreOnlineContentState extends State<StoreOnlineContent> {
       ),
       largeScreenWidthChild: _LargeScreenOnlineContent(
         coffeeMakerStepListWidgets: _coffeeMakerStepListWidgets,
+        isOverlayVisible: widget.isOverlayVisible,
       ),
     );
   }
@@ -101,36 +104,39 @@ class _SmallScreenOnlineContent extends StatelessWidget {
 
 class _LargeScreenOnlineContent extends StatelessWidget {
   const _LargeScreenOnlineContent({
-    required Map<CoffeeMakerStep, CoffeeOrderListWidget> coffeeMakerStepListWidgets,
-  }) : _coffeeMakerStepListWidgets = coffeeMakerStepListWidgets;
+    required this.coffeeMakerStepListWidgets,
+    required this.isOverlayVisible,
+  });
 
-  final Map<CoffeeMakerStep, CoffeeOrderListWidget> _coffeeMakerStepListWidgets;
+  final Map<CoffeeMakerStep, CoffeeOrderListWidget> coffeeMakerStepListWidgets;
+  final bool isOverlayVisible;
 
   @override
   Widget build(BuildContext context) {
     return WoltResponsiveLayoutGrid(
-      margin: EdgeInsets.symmetric(horizontal: 8),
+      margin: 8,
       gutter: 8,
-      gridContentGroup: [
+      isOverlayVisible: isOverlayVisible,
+      gridContentList: [
         WoltResponsiveLayoutGridContent(
           columnCount: 3,
           content: LargeScreenCoffeeOrderListSection(
             coffeeMakerStep: CoffeeMakerStep.grind,
-            coffeeOrderListWidget: _coffeeMakerStepListWidgets[CoffeeMakerStep.grind]!,
+            coffeeOrderListWidget: coffeeMakerStepListWidgets[CoffeeMakerStep.grind]!,
           ),
         ),
         WoltResponsiveLayoutGridContent(
           columnCount: 3,
           content: LargeScreenCoffeeOrderListSection(
             coffeeMakerStep: CoffeeMakerStep.addWater,
-            coffeeOrderListWidget: _coffeeMakerStepListWidgets[CoffeeMakerStep.addWater]!,
+            coffeeOrderListWidget: coffeeMakerStepListWidgets[CoffeeMakerStep.addWater]!,
           ),
         ),
         WoltResponsiveLayoutGridContent(
           columnCount: 2,
           content: LargeScreenCoffeeOrderListSection(
             coffeeMakerStep: CoffeeMakerStep.ready,
-            coffeeOrderListWidget: _coffeeMakerStepListWidgets[CoffeeMakerStep.ready]!,
+            coffeeOrderListWidget: coffeeMakerStepListWidgets[CoffeeMakerStep.ready]!,
           ),
         ),
       ],
