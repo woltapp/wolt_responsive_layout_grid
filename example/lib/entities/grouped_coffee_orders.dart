@@ -35,4 +35,15 @@ class GroupedCoffeeOrders extends Equatable {
 
   @override
   List<Object?> get props => [grindStateOrders, addWaterStateOrders, readyStateOrders];
+
+  int countForStep(CoffeeMakerStep step) {
+    switch (step) {
+      case CoffeeMakerStep.grind:
+        return grindStateOrders.length;
+      case CoffeeMakerStep.addWater:
+        return addWaterStateOrders.length;
+      case CoffeeMakerStep.ready:
+        return readyStateOrders.length;
+    }
+  }
 }

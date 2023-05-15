@@ -20,10 +20,12 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     required Widget child,
     int centerWidgetColumnCount = 1,
     int horizontalPaddedColumnCount = 1,
+    bool isOverlayVisible = false,
     double? gutter,
     double? margin,
   }) {
     return WoltResponsiveLayoutGrid(
+      isOverlayVisible: isOverlayVisible,
       gridContentList: [
         WoltResponsiveLayoutGridContent(
           content: SizedBox.expand(),

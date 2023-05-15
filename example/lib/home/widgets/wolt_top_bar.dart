@@ -6,23 +6,25 @@ import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_custom_div
 
 class WoltTopBar extends StatelessWidget {
   const WoltTopBar({
-    required this.selectedStepForBottomNavigationBar,
     required this.isStoreOnlineNotifier,
+    this.selectedStepForBottomNavigationBar,
     super.key,
   });
 
-  final CoffeeMakerStep selectedStepForBottomNavigationBar;
+  final CoffeeMakerStep? selectedStepForBottomNavigationBar;
   final ValueNotifier<bool> isStoreOnlineNotifier;
 
   @override
   Widget build(BuildContext context) {
     late String title;
-    switch(context.screenSize) {
+    final store = 'Coffee Maker';
+    final selectedStep = selectedStepForBottomNavigationBar;
+    switch (context.screenSize) {
       case WoltScreenSize.small:
-        title = selectedStepForBottomNavigationBar.stepName;
+        title = isStoreOnlineNotifier.value && selectedStep != null ? selectedStep.stepName : store;
         break;
       case WoltScreenSize.large:
-        title = 'Coffee Maker';
+        title = store;
         break;
     }
 
