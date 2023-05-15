@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6715740-bb6c-4e5b-a6e5-eefb79f68892" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/example/lib/home/offline/store_offline_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/offline/store_offline_content.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/entities/mock_coffee_orders.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/entities/mock_coffee_orders.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
