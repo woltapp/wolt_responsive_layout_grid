@@ -18,8 +18,8 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
 
   factory WoltResponsiveLayoutGrid.centered({
     required Widget child,
-    int centerWidgetColumnCount = 1,
-    int horizontalPaddedColumnCount = 1,
+    int centerWidgetColumnCount = 2,
+    int paddedColumnCountPerSide = 1,
     bool isOverlayVisible = false,
     double? gutter,
     double? margin,
@@ -29,12 +29,15 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
       gridContentList: [
         WoltResponsiveLayoutGridContent(
           content: SizedBox.expand(),
-          columnCount: horizontalPaddedColumnCount,
+          columnCount: paddedColumnCountPerSide,
         ),
-        WoltResponsiveLayoutGridContent(content: child, columnCount: centerWidgetColumnCount),
+        WoltResponsiveLayoutGridContent(
+          content: child,
+          columnCount: centerWidgetColumnCount,
+        ),
         WoltResponsiveLayoutGridContent(
           content: SizedBox.expand(),
-          columnCount: horizontalPaddedColumnCount,
+          columnCount: paddedColumnCountPerSide,
         ),
       ],
       gutter: _defaultGutter,
@@ -47,90 +50,63 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   final double? margin;
   final bool isOverlayVisible;
 
-  int get indexOfLastGridContent => gridContentList.length - 1;
+  double get _margin => margin ?? _defaultMargin;
+
+  int get _indexOfLastGridContent => gridContentList.length - 1;
+
+  int get _totalColumnCount => gridContentList.map((e) => e.columnCount).reduce((a, b) => a + b);
+
+  double get _totalGutterWidth => (_totalColumnCount - 1) * gutter;
+
+  double get _totalMarginWidth => _margin * 2;
+
+  double _totalWidthWithoutGutterAndMargin(double totalWidth) =>
+      totalWidth - _totalGutterWidth - _totalMarginWidth;
+
+  double _columnWidth(double totalWidth) =>
+      _totalWidthWithoutGutterAndMargin(totalWidth) / _totalColumnCount;
+
+  double _contentWidth(int columnCount, double columnWidth) =>
+      (columnWidth * columnCount) + (gutter * (columnCount - 1));
 
   @override
   Widget build(BuildContext context) {
-    final margin = this.margin ?? _defaultMargin;
     return LayoutBuilder(
       builder: (context, constraints) {
-        final measurementData = _LayoutData(
-          totalWidth: constraints.maxWidth,
-          gutter: gutter,
-          margin: margin,
-          gridContentList: gridContentList,
-        );
-        final widthPerColumn = measurementData.columnWidth;
+        final columnWidth = _columnWidth(constraints.maxWidth);
         return Stack(
           children: [
             Row(
               children: [
-                _Margin(margin: margin),
+                _Margin(margin: _margin),
                 for (int i = 0; i < gridContentList.length; i++)
                   Row(
                     children: [
                       SizedBox(
-                        width: (widthPerColumn * gridContentList[i].columnCount) +
-                            (gutter * (gridContentList[i].columnCount - 1)),
+                        width: _contentWidth(gridContentList[i].columnCount, columnWidth),
                         child: gridContentList[i].content,
                       ),
-                      if (i != indexOfLastGridContent) _Gutter(gutter: gutter),
+                      if (i != _indexOfLastGridContent) _Gutter(gutter: gutter),
                     ],
                   ),
-                _Margin(margin: margin),
+                _Margin(margin: _margin),
               ],
             ),
             if (isOverlayVisible)
-              _WoltResponsiveLayoutGridColoredOverlay(layoutData: measurementData),
+              Row(
+                children: [
+                  _Margin(margin: _margin, isOverlay: true),
+                  for (int i = 0; i < _totalColumnCount; i++)
+                    Row(children: [
+                      _Column(columnWidth: columnWidth, isOverlay: true),
+                      if (i != _totalColumnCount - 1) _Gutter(gutter: gutter, isOverlay: true),
+                    ]),
+                  _Margin(margin: _margin, isOverlay: true),
+                ],
+              ),
           ],
         );
       },
-    );
-  }
-}
-
-class _LayoutData {
-  const _LayoutData({
-    required this.totalWidth,
-    required this.gutter,
-    required this.margin,
-    required this.gridContentList,
-  });
-
-  final double totalWidth;
-  final double gutter;
-  final double margin;
-  final List<WoltResponsiveLayoutGridContent> gridContentList;
-
-  int get totalColumnCount => gridContentList.map((e) => e.columnCount).reduce((a, b) => a + b);
-
-  double get totalGutterWidth => (totalColumnCount - 1) * gutter;
-
-  double get totalMarginWidth => margin * 2;
-
-  double get totalWidthWithoutGutterAndMargin => totalWidth - totalGutterWidth - totalMarginWidth;
-
-  double get columnWidth => totalWidthWithoutGutterAndMargin / totalColumnCount;
-}
-
-class _WoltResponsiveLayoutGridColoredOverlay extends StatelessWidget {
-  const _WoltResponsiveLayoutGridColoredOverlay({required this.layoutData});
-
-  final _LayoutData layoutData;
-
-  @override
-  Widget build(BuildContext context) {
-    final totalColumnCount = layoutData.totalColumnCount;
-    return Row(
-      children: [
-        _Margin(margin: layoutData.margin, isOverlay: true),
-        for (int i = 0; i < totalColumnCount; i++)
-          Row(children: [
-            _Column(columnWidth: layoutData.columnWidth, isOverlay: true),
-            if (i != totalColumnCount - 1) _Gutter(gutter: layoutData.gutter, isOverlay: true),
-          ]),
-        _Margin(margin: layoutData.margin, isOverlay: true),
-      ],
     );
   }
 }
@@ -146,7 +122,7 @@ class _Column extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       child: SizedBox(width: columnWidth, height: double.infinity),
       color: isOverlay ? Colors.red.withOpacity(0.2) : Colors.transparent,
     );
@@ -164,7 +140,7 @@ class _Margin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       child: SizedBox(width: margin, height: double.infinity),
       color: isOverlay ? Colors.green.withOpacity(0.2) : Colors.transparent,
     );
@@ -182,9 +158,8 @@ class _Gutter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: gutter,
-      height: double.infinity,
+    return ColoredBox(
+      child: SizedBox(width: gutter, height: double.infinity),
       color: isOverlay ? Colors.cyan.withOpacity(0.2) : Colors.transparent,
     );
   }

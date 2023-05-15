@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6715740-bb6c-4e5b-a6e5-eefb79f68892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/example/lib/home/online/large_screen/large_screen_online_content.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/home/online/small_screen/small_screen_online_content.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/entities/grouped_coffee_orders.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/entities/grouped_coffee_orders.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/home/offline/store_offline_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/offline/store_offline_content.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/online/store_online_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/store_online_content.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/online/widgets/home_screen_bottom_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/small_screen/home_screen_bottom_navigation_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/online/widgets/large_screen_coffee_order_list_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/large_screen/large_screen_coffee_order_list_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

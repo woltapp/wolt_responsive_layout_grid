@@ -48,7 +48,7 @@ class _StoreOfflineContentState extends State<StoreOfflineContent> {
                   largeScreenWidthChild: WoltResponsiveLayoutGrid.centered(
                     child: storeOfflineContent,
                     centerWidgetColumnCount: 2,
-                    horizontalPaddedColumnCount: 1,
+                    paddedColumnCountPerSide: 1,
                     isOverlayVisible: _isOverlayVisible,
                   ),
                 ),
