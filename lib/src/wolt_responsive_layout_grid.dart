@@ -23,8 +23,10 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     bool isOverlayVisible = false,
     double? gutter,
     double? margin,
+    Key? key,
   }) {
     return WoltResponsiveLayoutGrid(
+      key: key,
       isOverlayVisible: isOverlayVisible,
       gridContentList: [
         WoltResponsiveLayoutGridContent(
