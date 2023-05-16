@@ -4,8 +4,8 @@ version: 0.0.1
 repository: https://github.com/woltapp/wolt-responsive-layout-grid
 
 environment:
-  sdk: '>=2.19.6 <4.0.0'
-  flutter: ">=3.3.0"
+  sdk: ">=2.19.2 <4.0.0"
+  flutter: ">=3.7.2"
 
 dependencies:
   flutter:
