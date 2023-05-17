@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:wolt_responsive_layout_grid/src/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid/src/wolt_column_span_cell.dart';
 
+import 'utils/screen_size_utils.dart';
+
 void main() {
   group('calculateColumnGroupWidthInResponsiveLayoutGrid', () {
     const gutter = 8.0;
@@ -10,13 +12,6 @@ void main() {
     const firstGridContentKey = Key('firstGridContent');
     const secondGridContentKey = Key('secondGridContent');
     const thirdGridContentKey = Key('thirdGridContent');
-
-    void setWoltScreenSize(WidgetTester tester, double width) {
-      // Magic number for device pixel ratio: https://stackoverflow.com/a/62460566
-      tester.binding.window.devicePixelRatioTestValue = 2.625;
-      final dpi = tester.binding.window.devicePixelRatio;
-      tester.binding.window.physicalSizeTestValue = Size(width * dpi, 812 * dpi);
-    }
 
     testWidgets('3:3:2 layout with gutter for 3-column group', (tester) async {
       const List<WoltColumnSpanCell> gridContentList = [
@@ -33,7 +28,7 @@ void main() {
           columnCellWidget: Placeholder(key: thirdGridContentKey),
         ),
       ];
-      setWoltScreenSize(tester, 768);
+      setTestScreenWidth(tester, 768);
       await tester.pumpWidget(MediaQuery(
         data: const MediaQueryData(),
         child: MaterialApp(
@@ -52,7 +47,7 @@ void main() {
     });
 
     testWidgets('Centered layout with gutter for 3-column group', (tester) async {
-      setWoltScreenSize(tester, 1024);
+      setTestScreenWidth(tester, 1024);
       await tester.pumpWidget(MediaQuery(
         data: const MediaQueryData(),
         child: MaterialApp(
