@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/grouped_coffee_orders.dart';
 import 'package:wolt_responsive_layout_grid_example/home/home_screen.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/mock_coffee_orders.dart';
+import 'package:wolt_responsive_layout_grid_example/home/widgets/drag_scroll_behavior.dart';
 
 import 'constants/demo_app_constants.dart';
 
@@ -90,9 +91,12 @@ class _DemoAppState extends State<DemoApp> {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(
-        groupedCoffeeOrders: GroupedCoffeeOrders.fromCoffeeOrders(mockCoffeeOrders),
-        isStoreOnline: true,
+      home: ScrollConfiguration(
+        behavior: const DragScrollBehavior(),
+        child: HomeScreen(
+          groupedCoffeeOrders: GroupedCoffeeOrders.fromCoffeeOrders(mockCoffeeOrders),
+          isStoreOnline: true,
+        ),
       ),
     );
   }

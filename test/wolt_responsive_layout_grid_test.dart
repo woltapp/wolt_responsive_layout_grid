@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:wolt_responsive_layout_grid/src/wolt_responsive_layout_grid.dart';
-import 'package:wolt_responsive_layout_grid/src/wolt_responsive_layout_grid_content.dart';
+import 'package:wolt_responsive_layout_grid/src/wolt_column_span_cell.dart';
 
 void main() {
   group('calculateColumnGroupWidthInResponsiveLayoutGrid', () {
@@ -19,18 +19,18 @@ void main() {
     }
 
     testWidgets('3:3:2 layout with gutter for 3-column group', (tester) async {
-      const List<WoltResponsiveLayoutGridContent> gridContentList = [
-        WoltResponsiveLayoutGridContent(
-          columnCount: 3,
-          content: Placeholder(key: firstGridContentKey),
+      const List<WoltColumnSpanCell> gridContentList = [
+        WoltColumnSpanCell(
+          columnSpan: 3,
+          columnCellWidget: Placeholder(key: firstGridContentKey),
         ),
-        WoltResponsiveLayoutGridContent(
-          columnCount: 3,
-          content: Placeholder(key: secondGridContentKey),
+        WoltColumnSpanCell(
+          columnSpan: 3,
+          columnCellWidget: Placeholder(key: secondGridContentKey),
         ),
-        WoltResponsiveLayoutGridContent(
-          columnCount: 2,
-          content: Placeholder(key: thirdGridContentKey),
+        WoltColumnSpanCell(
+          columnSpan: 2,
+          columnCellWidget: Placeholder(key: thirdGridContentKey),
         ),
       ];
       setWoltScreenSize(tester, 768);
@@ -40,7 +40,7 @@ void main() {
           home: Scaffold(
             body: WoltResponsiveLayoutGrid(
               gutter: gutter,
-              gridContentList: gridContentList,
+              columnSpanCells: gridContentList,
               margin: margin,
             ),
           ),

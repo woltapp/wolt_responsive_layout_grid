@@ -43,26 +43,26 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
                 margin: 8,
                 gutter: 8,
                 isOverlayVisible: _isOverlayVisible,
-                gridContentList: [
-                  WoltResponsiveLayoutGridContent(
-                    columnCount: 3,
-                    content: LargeScreenCoffeeOrderListSection(
+                columnSpanCells: [
+                  WoltColumnSpanCell(
+                    columnSpan: 3,
+                    columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.grind,
                       coffeeOrderListWidget:
                           widget.coffeeMakerStepListWidgets[CoffeeMakerStep.grind]!,
                     ),
                   ),
-                  WoltResponsiveLayoutGridContent(
-                    columnCount: 3,
-                    content: LargeScreenCoffeeOrderListSection(
+                  WoltColumnSpanCell(
+                    columnSpan: 3,
+                    columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.addWater,
                       coffeeOrderListWidget:
                           widget.coffeeMakerStepListWidgets[CoffeeMakerStep.addWater]!,
                     ),
                   ),
-                  WoltResponsiveLayoutGridContent(
-                    columnCount: 2,
-                    content: LargeScreenCoffeeOrderListSection(
+                  WoltColumnSpanCell(
+                    columnSpan: 2,
+                    columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.ready,
                       coffeeOrderListWidget:
                           widget.coffeeMakerStepListWidgets[CoffeeMakerStep.ready]!,
