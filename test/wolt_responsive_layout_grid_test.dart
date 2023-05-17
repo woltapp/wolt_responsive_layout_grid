@@ -14,7 +14,7 @@ void main() {
     const thirdGridContentKey = Key('thirdGridContent');
 
     testWidgets('3:3:2 layout with gutter for 3-column group', (tester) async {
-      const List<WoltColumnSpanCell> gridContentList = [
+      const List<WoltColumnSpanCell> columnSpanCells = [
         WoltColumnSpanCell(
           columnSpan: 3,
           columnCellWidget: Placeholder(key: firstGridContentKey),
@@ -35,7 +35,7 @@ void main() {
           home: Scaffold(
             body: WoltResponsiveLayoutGrid(
               gutter: gutter,
-              columnSpanCells: gridContentList,
+              columnSpanCells: columnSpanCells,
               margin: margin,
             ),
           ),

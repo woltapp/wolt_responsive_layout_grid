@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6715740-bb6c-4e5b-a6e5-eefb79f68892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/example/lib/home/widgets/drag_scroll_behavior.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/wolt_column_span_cell.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/online/large_screen/large_screen_online_content.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/online/large_screen/large_screen_online_content.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/home/widgets/wolt_top_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/extensions/build_context_extension.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/wolt_responsive_layout_grid_content.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/wolt_screen_size.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/wolt_screen_width_adaptive_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wolt_screen_width_adaptive_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/wolt_responsive_layout_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/wolt_responsive_layout_grid.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,19 +34,20 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/cagatayulusoy/wolt/oss/wolt-responsive-layout-grid/example/lib/home/widgets&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "com.android.tools.idea.emulator.zoom.toolbar.visible": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "/Users/cagatayulusoy/wolt/oss/wolt-responsive-layout-grid/example/lib/home/widgets",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/example/lib/home/widgets" />
@@ -77,12 +69,6 @@
       <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
       <method v="2" />
     </configuration>
-    <configuration name="3:3:2 layout with gutter for 3-column group" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="3:3:2 layout with gutter for 3-column group" />
-      <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
-      <option name="useRegexp" value="true" />
-      <method v="2" />
-    </configuration>
     <configuration name="Centered layout with gutter for 3-column group" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testName" value="Centered layout with gutter for 3-column group" />
       <option name="testFile" value="$PROJECT_DIR$/test/wolt_responsive_layout_grid_test.dart" />
@@ -101,12 +87,23 @@
       <option name="useRegexp" value="true" />
       <method v="2" />
     </configuration>
+    <configuration name="tests in test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testDir" value="$PROJECT_DIR$/test" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in wolt_screen_width_adaptive_widget_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/wolt_screen_width_adaptive_widget_test.dart" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter Test.tests in test" />
+        <item itemvalue="Flutter Test.tests in wolt_screen_width_adaptive_widget_test.dart" />
         <item itemvalue="Flutter Test.Centered layout with gutter for 3-column group" />
         <item itemvalue="Flutter Test.calculateColumnGroupWidthInResponsiveLayoutGrid" />
         <item itemvalue="Flutter Test.return zero if the total column count is zero" />
-        <item itemvalue="Flutter Test.3:3:2 layout with gutter for 3-column group" />
       </list>
     </recent_temporary>
   </component>

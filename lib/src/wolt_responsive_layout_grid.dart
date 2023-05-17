@@ -16,7 +16,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   const WoltResponsiveLayoutGrid({
     required this.columnSpanCells,
     this.gutter = _defaultGutter,
-    this.margin,
+    this.margin = _defaultMargin,
     this.isOverlayVisible = false,
     Key? key,
   }) : super(key: key);
@@ -34,8 +34,8 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     int centerWidgetColumnCount = 2,
     int paddedColumnCountPerSide = 1,
     bool isOverlayVisible = false,
-    double? gutter,
-    double? margin,
+    double gutter = _defaultGutter,
+    double margin = _defaultMargin,
     Key? key,
   }) {
     return WoltResponsiveLayoutGrid(
@@ -55,8 +55,8 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
           columnSpan: paddedColumnCountPerSide,
         ),
       ],
-      gutter: _defaultGutter,
-      margin: _defaultMargin,
+      gutter: gutter,
+      margin: margin,
     );
   }
 
@@ -67,12 +67,10 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   final double gutter;
 
   /// The margin around the grid.
-  final double? margin;
+  final double margin;
 
   /// Determines whether an overlay for debugging purposes is visible.
   final bool isOverlayVisible;
-
-  double get _margin => margin ?? _defaultMargin;
 
   int get _indexOfLastGridContent => columnSpanCells.length - 1;
 
@@ -80,7 +78,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
 
   double get _totalGutterWidth => (_totalColumnCount - 1) * gutter;
 
-  double get _totalMarginWidth => _margin * 2;
+  double get _totalMarginWidth => margin * 2;
 
   double _totalWidthWithoutGutterAndMargin(double totalWidth) =>
       totalWidth - _totalGutterWidth - _totalMarginWidth;
@@ -100,7 +98,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
           children: [
             Row(
               children: [
-                _Margin(margin: _margin),
+                _Margin(margin: margin),
                 for (int i = 0; i < columnSpanCells.length; i++)
                   Row(
                     children: [
@@ -111,19 +109,19 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
                       if (i != _indexOfLastGridContent) _Gutter(gutter: gutter),
                     ],
                   ),
-                _Margin(margin: _margin),
+                _Margin(margin: margin),
               ],
             ),
             if (isOverlayVisible)
               Row(
                 children: [
-                  _Margin(margin: _margin, isOverlay: true),
+                  _Margin(margin: margin, isOverlay: true),
                   for (int i = 0; i < _totalColumnCount; i++)
                     Row(children: [
                       _Column(columnWidth: columnWidth, isOverlay: true),
                       if (i != _totalColumnCount - 1) _Gutter(gutter: gutter, isOverlay: true),
                     ]),
-                  _Margin(margin: _margin, isOverlay: true),
+                  _Margin(margin: margin, isOverlay: true),
                 ],
               ),
           ],
