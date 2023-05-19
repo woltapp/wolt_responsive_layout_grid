@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 
+/// A widget that displays a message when the coffee order list is empty for a specific coffee maker step.
+///
+/// This widget takes a coffee maker step and renders a message indicating that there are no tasks
+/// or orders available for that step.
 class EmptyCoffeeOrderList extends StatelessWidget {
   const EmptyCoffeeOrderList({
     required this.coffeeMakerStep,
@@ -20,14 +24,14 @@ class EmptyCoffeeOrderList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              coffeeMakerStep.stepName,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
+              coffeeMakerStep.title,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 12),
             Text(
               'New tasks will appear here automatically',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
           ],
@@ -37,7 +41,7 @@ class EmptyCoffeeOrderList extends StatelessWidget {
   }
 }
 
-extension CoffeeMakerStepExtension on CoffeeMakerStep {
+extension _CoffeeMakerStepExtension on CoffeeMakerStep {
   String get title {
     switch (this) {
       case CoffeeMakerStep.grind:

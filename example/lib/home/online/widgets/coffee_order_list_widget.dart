@@ -4,22 +4,27 @@ import 'package:wolt_responsive_layout_grid_example/entities/coffee_order.dart';
 import 'package:wolt_responsive_layout_grid_example/home/online/widgets/coffee_order_list_item_tile.dart';
 import 'package:wolt_responsive_layout_grid_example/home/online/widgets/empty_coffee_order_list_widget.dart';
 
+/// A widget that displays a list of coffee orders for a specific coffee maker step.
+///
+/// This widget takes a list of coffee orders, a coffee maker step, and a callback function for when a coffee order is selected.
+/// It renders either an empty list message or a scrollable list of coffee order items.
 class CoffeeOrderListWidget extends StatelessWidget {
   const CoffeeOrderListWidget({
     required this.coffeeOrders,
-    required this.coffeeMakerStep,
-    required this.onCoffeeOrderSelected,
+    required CoffeeMakerStep coffeeMakerStep,
+    required void Function(String) onCoffeeOrderSelected,
     super.key,
-  });
+  })  : _onCoffeeOrderSelected = onCoffeeOrderSelected,
+        _coffeeMakerStep = coffeeMakerStep;
 
-  final CoffeeMakerStep coffeeMakerStep;
   final List<CoffeeOrder> coffeeOrders;
-  final ValueChanged<String> onCoffeeOrderSelected;
+  final CoffeeMakerStep _coffeeMakerStep;
+  final ValueChanged<String> _onCoffeeOrderSelected;
 
   @override
   Widget build(BuildContext context) {
     return coffeeOrders.isEmpty
-        ? EmptyCoffeeOrderList(coffeeMakerStep: coffeeMakerStep)
+        ? EmptyCoffeeOrderList(coffeeMakerStep: _coffeeMakerStep)
         : ListView.separated(
             itemBuilder: (_, index) {
               final coffeeOrder = coffeeOrders[index];
@@ -28,7 +33,7 @@ class CoffeeOrderListWidget extends StatelessWidget {
                   if (index == 0) SizedBox(height: 16),
                   CoffeeOrderListItemTile(
                     coffeeOrder: coffeeOrder,
-                    onSelected: onCoffeeOrderSelected,
+                    onSelected: _onCoffeeOrderSelected,
                   ),
                   if (index == coffeeOrders.length - 1) SizedBox(height: 16),
                 ],

@@ -3,31 +3,37 @@ import 'package:wolt_responsive_layout_grid_example/constants/demo_app_constants
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 import 'package:wolt_responsive_layout_grid_example/home/online/widgets/coffee_order_list_widget.dart';
 
+/// A section that displays a list of coffee orders on a large screen.
+///
+/// This section consists of a header and a list of coffee orders.
+/// The header displays the coffee maker step and the count of orders in that step.
+/// The list of coffee orders is provided by the [_coffeeOrderListWidget].
 class LargeScreenCoffeeOrderListSection extends StatelessWidget {
   const LargeScreenCoffeeOrderListSection({
-    required this.coffeeOrderListWidget,
-    required this.coffeeMakerStep,
+    required CoffeeOrderListWidget coffeeOrderListWidget,
+    required CoffeeMakerStep coffeeMakerStep,
     super.key,
-  });
+  })  : _coffeeMakerStep = coffeeMakerStep,
+        _coffeeOrderListWidget = coffeeOrderListWidget;
 
-  final CoffeeOrderListWidget coffeeOrderListWidget;
-  final CoffeeMakerStep coffeeMakerStep;
+  final CoffeeOrderListWidget _coffeeOrderListWidget;
+  final CoffeeMakerStep _coffeeMakerStep;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         _LargeScreenCoffeeOrderListHeader(
-          coffeeMakerStep: coffeeMakerStep,
-          count: coffeeOrderListWidget.coffeeOrders.length,
+          coffeeMakerStep: _coffeeMakerStep,
+          count: _coffeeOrderListWidget.coffeeOrders.length,
         ),
         Expanded(
           child: Container(
             width: double.infinity,
             height: double.infinity,
             padding: EdgeInsets.symmetric(horizontal: 8),
-            color: coffeeMakerStep == CoffeeMakerStep.ready ? DemoAppColors.white : null,
-            decoration: coffeeMakerStep == CoffeeMakerStep.ready
+            color: _coffeeMakerStep == CoffeeMakerStep.ready ? DemoAppColors.white : null,
+            decoration: _coffeeMakerStep == CoffeeMakerStep.ready
                 ? null
                 : ShapeDecoration(
                     color: DemoAppColors.black4,
@@ -39,7 +45,7 @@ class LargeScreenCoffeeOrderListSection extends StatelessWidget {
                       ),
                     ),
                   ),
-            child: coffeeOrderListWidget,
+            child: _coffeeOrderListWidget,
           ),
         ),
       ],
@@ -47,11 +53,17 @@ class LargeScreenCoffeeOrderListSection extends StatelessWidget {
   }
 }
 
+/// The header for the large screen coffee order list section.
+///
+/// This header displays the coffee maker step and the count of orders in that step.
 class _LargeScreenCoffeeOrderListHeader extends StatelessWidget {
-  const _LargeScreenCoffeeOrderListHeader({required this.coffeeMakerStep, required this.count});
+  const _LargeScreenCoffeeOrderListHeader(
+      {required CoffeeMakerStep coffeeMakerStep, required int count})
+      : _count = count,
+        _coffeeMakerStep = coffeeMakerStep;
 
-  final CoffeeMakerStep coffeeMakerStep;
-  final int count;
+  final CoffeeMakerStep _coffeeMakerStep;
+  final int _count;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +76,7 @@ class _LargeScreenCoffeeOrderListHeader extends StatelessWidget {
         color: DemoAppColors.white,
       ),
       child: Text(
-        '${coffeeMakerStep.stepName} ($count)',
+        '${_coffeeMakerStep.stepName} ($_count)',
         style: Theme.of(context).textTheme.titleMedium!,
         textAlign: TextAlign.center,
       ),

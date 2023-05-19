@@ -11,13 +11,14 @@ typedef OnCoffeeOrderStatusChange = Function(String coffeeOrderId, [CoffeeMakerS
 
 class StoreOnlineContent extends StatefulWidget {
   const StoreOnlineContent({
-    required this.groupedCoffeeOrders,
-    required this.isStoreOnlineNotifier,
+    required GroupedCoffeeOrders groupedCoffeeOrders,
+    required ValueNotifier<bool> isStoreOnlineNotifier,
     super.key,
-  });
+  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
+        _groupedCoffeeOrders = groupedCoffeeOrders;
 
-  final GroupedCoffeeOrders groupedCoffeeOrders;
-  final ValueNotifier<bool> isStoreOnlineNotifier;
+  final GroupedCoffeeOrders _groupedCoffeeOrders;
+  final ValueNotifier<bool> _isStoreOnlineNotifier;
 
   @override
   State<StoreOnlineContent> createState() => _StoreOnlineContentState();
@@ -28,7 +29,7 @@ class _StoreOnlineContentState extends State<StoreOnlineContent> {
 
   initState() {
     super.initState();
-    _orders = widget.groupedCoffeeOrders;
+    _orders = widget._groupedCoffeeOrders;
   }
 
   Map<CoffeeMakerStep, CoffeeOrderListWidget> get _coffeeMakerStepListWidgets => {
@@ -57,17 +58,26 @@ class _StoreOnlineContentState extends State<StoreOnlineContent> {
   Widget build(BuildContext context) {
     return WoltScreenWidthAdaptiveWidget(
       smallScreenWidthChild: SmallScreenOnlineContent(
-        isStoreOnlineNotifier: widget.isStoreOnlineNotifier,
+        isStoreOnlineNotifier: widget._isStoreOnlineNotifier,
         coffeeMakerStepListWidgets: _coffeeMakerStepListWidgets,
         groupedCoffeeOrders: _orders,
       ),
       largeScreenWidthChild: LargeScreenOnlineContent(
-        isStoreOnlineNotifier: widget.isStoreOnlineNotifier,
+        isStoreOnlineNotifier: widget._isStoreOnlineNotifier,
         coffeeMakerStepListWidgets: _coffeeMakerStepListWidgets,
       ),
     );
   }
 
+  /// Callback method invoked when the status of a coffee order changes.
+  ///
+  /// The [coffeeOrderId] is the ID of the coffee order that had its status changed.
+  /// The optional [newStep] parameter represents the new status of the coffee order.
+  /// If [newStep] is provided and is either [CoffeeMakerStep.addWater] or [CoffeeMakerStep.ready],
+  /// the method updates the status of the coffee order in the current list of orders.
+  /// If [newStep] is not provided the method removes the coffee order from the current list of
+  /// orders.
+  /// Finally, the method triggers a state update to reflect the changes in the UI.
   void _onCoffeeOrderStatusChange(String coffeeOrderId, [CoffeeMakerStep? newStep]) {
     final currentList = List<CoffeeOrder>.from(_orders.allOrders);
     final updateIndex = currentList.indexWhere((o) => o.id == coffeeOrderId);
@@ -76,7 +86,7 @@ class _StoreOnlineContentState extends State<StoreOnlineContent> {
     } else {
       currentList.removeAt(updateIndex);
     }
-    return setState(() {
+    setState(() {
       _orders = GroupedCoffeeOrders.fromCoffeeOrders(currentList);
     });
   }

@@ -1,6 +1,7 @@
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_order.dart';
 
+/// A list of mock coffee orders used in the CoffeeMaker demo app.
 const List<CoffeeOrder> mockCoffeeOrders = <CoffeeOrder>[
   CoffeeOrder(coffeeMakerStep: CoffeeMakerStep.grind, orderName: 'Yuho W.', id: '#001'),
   CoffeeOrder(coffeeMakerStep: CoffeeMakerStep.grind, orderName: 'John Doe', id: '#002'),

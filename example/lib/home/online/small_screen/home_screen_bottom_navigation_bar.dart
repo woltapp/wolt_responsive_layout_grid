@@ -6,17 +6,24 @@ import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_custom_div
 
 typedef OnCoffeeMakerStepSelected = void Function(CoffeeMakerStep selectedStep);
 
+/// A custom bottom navigation bar for the home screen.
+///
+/// This navigation bar displays icons representing different steps of the coffee making process.
+/// It also shows the count of orders for each step, indicated by a badge.
+/// The selected step is highlighted with a different color.
 class HomeScreenBottomNavigationBar extends StatelessWidget {
   const HomeScreenBottomNavigationBar({
-    required this.selectedStep,
-    required this.onSelected,
-    required this.groupedCoffeeOrders,
+    required CoffeeMakerStep selectedStep,
+    required void Function(CoffeeMakerStep) onSelected,
+    required GroupedCoffeeOrders groupedCoffeeOrders,
     super.key,
-  });
+  })  : _groupedCoffeeOrders = groupedCoffeeOrders,
+        _onSelected = onSelected,
+        _selectedStep = selectedStep;
 
-  final CoffeeMakerStep selectedStep;
-  final OnCoffeeMakerStepSelected onSelected;
-  final GroupedCoffeeOrders groupedCoffeeOrders;
+  final CoffeeMakerStep _selectedStep;
+  final OnCoffeeMakerStepSelected _onSelected;
+  final GroupedCoffeeOrders _groupedCoffeeOrders;
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +35,12 @@ class HomeScreenBottomNavigationBar extends StatelessWidget {
           destinations: [
             for (CoffeeMakerStep step in CoffeeMakerStep.values)
               step._navigationDestination(
-                  isSelected: step == selectedStep, count: groupedCoffeeOrders.countForStep(step)),
+                  isSelected: step == _selectedStep,
+                  count: _groupedCoffeeOrders.countForStep(step)),
           ],
-          selectedIndex: selectedStep.index,
+          selectedIndex: _selectedStep.index,
           onDestinationSelected: (i) {
-            onSelected(CoffeeMakerStep.values.firstWhere((e) => e.stepNumber == i));
+            _onSelected(CoffeeMakerStep.values.firstWhere((e) => e.stepNumber == i));
           },
         ),
       ],
@@ -40,6 +48,7 @@ class HomeScreenBottomNavigationBar extends StatelessWidget {
   }
 }
 
+/// Represents data for a navigation destination.
 class NavigationDestinationData {
   final Widget icon;
   final Widget selectedIcon;
@@ -52,6 +61,7 @@ class NavigationDestinationData {
   });
 }
 
+/// An extension for [CoffeeMakerStep] to generate navigation destinations.
 extension CoffeeMakerStepExtension on CoffeeMakerStep {
   NavigationDestination _navigationDestination({
     required bool isSelected,
@@ -104,6 +114,7 @@ extension CoffeeMakerStepExtension on CoffeeMakerStep {
   }
 }
 
+/// A widget representing an icon for a navigation destination.
 class _DestinationIcon extends StatelessWidget {
   const _DestinationIcon(
     this.iconData, {

@@ -5,14 +5,20 @@ import 'package:wolt_responsive_layout_grid_example/home/online/large_screen/lar
 import 'package:wolt_responsive_layout_grid_example/home/online/widgets/coffee_order_list_widget.dart';
 import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_top_bar.dart';
 
+/// A widget that represents the online content for large screens.
+///
+/// This widget is responsible for displaying the coffee order lists for different steps of the coffee making process.
+/// It takes a map of [CoffeeMakerStep] to [CoffeeOrderListWidget] as input, which defines the widgets for each step.
+/// The [isStoreOnlineNotifier] is a [ValueNotifier] that notifies the widget of changes in the store's online status.
 class LargeScreenOnlineContent extends StatefulWidget {
   const LargeScreenOnlineContent({
-    required this.coffeeMakerStepListWidgets,
-    required this.isStoreOnlineNotifier,
-  });
+    required Map<CoffeeMakerStep, CoffeeOrderListWidget> coffeeMakerStepListWidgets,
+    required ValueNotifier<bool> isStoreOnlineNotifier,
+  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
+        _coffeeMakerStepListWidgets = coffeeMakerStepListWidgets;
 
-  final Map<CoffeeMakerStep, CoffeeOrderListWidget> coffeeMakerStepListWidgets;
-  final ValueNotifier<bool> isStoreOnlineNotifier;
+  final Map<CoffeeMakerStep, CoffeeOrderListWidget> _coffeeMakerStepListWidgets;
+  final ValueNotifier<bool> _isStoreOnlineNotifier;
 
   @override
   State<LargeScreenOnlineContent> createState() => _LargeScreenOnlineContentState();
@@ -36,7 +42,7 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
               onTap: () {
                 setState(() => _isOverlayVisible = !_isOverlayVisible);
               },
-              child: WoltTopBar(isStoreOnlineNotifier: widget.isStoreOnlineNotifier),
+              child: TopBar(isStoreOnlineNotifier: widget._isStoreOnlineNotifier),
             ),
             Expanded(
               child: WoltResponsiveLayoutGrid(
@@ -49,7 +55,7 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
                     columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.grind,
                       coffeeOrderListWidget:
-                          widget.coffeeMakerStepListWidgets[CoffeeMakerStep.grind]!,
+                          widget._coffeeMakerStepListWidgets[CoffeeMakerStep.grind]!,
                     ),
                   ),
                   WoltColumnSpanCell(
@@ -57,7 +63,7 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
                     columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.addWater,
                       coffeeOrderListWidget:
-                          widget.coffeeMakerStepListWidgets[CoffeeMakerStep.addWater]!,
+                          widget._coffeeMakerStepListWidgets[CoffeeMakerStep.addWater]!,
                     ),
                   ),
                   WoltColumnSpanCell(
@@ -65,7 +71,7 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
                     columnCellWidget: LargeScreenCoffeeOrderListSection(
                       coffeeMakerStep: CoffeeMakerStep.ready,
                       coffeeOrderListWidget:
-                          widget.coffeeMakerStepListWidgets[CoffeeMakerStep.ready]!,
+                          widget._coffeeMakerStepListWidgets[CoffeeMakerStep.ready]!,
                     ),
                   ),
                 ],

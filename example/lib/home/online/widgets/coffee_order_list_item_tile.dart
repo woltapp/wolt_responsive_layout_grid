@@ -2,24 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid_example/constants/demo_app_constants.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_order.dart';
 
+/// A tile widget representing a coffee order item in a list.
+///
+/// This tile displays the details of a coffee order, including the order ID, order name, and an action button.
+/// The `onSelected` callback is invoked when the tile is tapped.
 class CoffeeOrderListItemTile extends StatelessWidget {
   const CoffeeOrderListItemTile({
-    required this.coffeeOrder,
-    required this.onSelected,
+    required CoffeeOrder coffeeOrder,
+    required void Function(String) onSelected,
     super.key,
-  });
+  })  : _onSelected = onSelected,
+        _coffeeOrder = coffeeOrder;
 
-  final CoffeeOrder coffeeOrder;
-  final ValueChanged<String> onSelected;
+  final CoffeeOrder _coffeeOrder;
+  final ValueChanged<String> _onSelected;
 
   VoidCallback get onTap => () {
-        print("Selected coffee order: ${coffeeOrder.id}");
-        onSelected(coffeeOrder.id);
+        print("Selected coffee order: ${_coffeeOrder.id}");
+        _onSelected(_coffeeOrder.id);
       };
 
   @override
   Widget build(BuildContext context) {
-    final step = coffeeOrder.coffeeMakerStep;
+    final step = _coffeeOrder.coffeeMakerStep;
     return SizedBox(
       height: 180,
       child: Material(
@@ -36,7 +41,7 @@ class CoffeeOrderListItemTile extends StatelessWidget {
                   child: Column(
                     children: [
                       _CoffeeOrderListItemDetails(
-                        coffeeOrder: coffeeOrder,
+                        coffeeOrder: _coffeeOrder,
                         onTap: onTap,
                       ),
                       Spacer(),
@@ -65,30 +70,33 @@ class CoffeeOrderListItemTile extends StatelessWidget {
   }
 }
 
+/// The details section of a coffee order list item.
+///
+/// This section displays the order ID and order name of a coffee order.
 class _CoffeeOrderListItemDetails extends StatelessWidget {
   const _CoffeeOrderListItemDetails({
-    required this.coffeeOrder,
-    required this.onTap,
-  });
+    required CoffeeOrder coffeeOrder,
+    required void Function() onTap,
+  }) : _onTap = onTap, _coffeeOrder = coffeeOrder;
 
-  final CoffeeOrder coffeeOrder;
-  final VoidCallback onTap;
+  final CoffeeOrder _coffeeOrder;
+  final VoidCallback _onTap;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         OutlinedButton(
-          onPressed: onTap,
+          onPressed: _onTap,
           child: Text(
-            coffeeOrder.id,
+            _coffeeOrder.id,
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
-            coffeeOrder.orderName,
+            _coffeeOrder.orderName,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: DemoAppColors.white,
                   fontWeight: FontWeight.bold,

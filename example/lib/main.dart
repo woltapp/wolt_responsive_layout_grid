@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wolt_responsive_layout_grid/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/grouped_coffee_orders.dart';
 import 'package:wolt_responsive_layout_grid_example/home/home_screen.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/mock_coffee_orders.dart';

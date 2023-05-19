@@ -5,24 +5,31 @@ import 'package:wolt_responsive_layout_grid_example/home/widgets/store_online_st
 import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_custom_divider.dart';
 import 'package:wolt_responsive_layout_grid_example/extensions/build_context_extension.dart';
 
-class WoltTopBar extends StatelessWidget {
-  const WoltTopBar({
-    required this.isStoreOnlineNotifier,
-    this.selectedStepForBottomNavigationBar,
+/// The top bar widget is displayed in both offline and online states of the Coffee Maker app.
+///
+/// The `WoltTopBar` widget consists of a title and a store online status button.
+/// The title represents the current screen or the name of the store, depending on the screen
+/// size and store online status.
+class TopBar extends StatelessWidget {
+  const TopBar({
+    required ValueNotifier<bool> isStoreOnlineNotifier,
+    CoffeeMakerStep? selectedStepForBottomNavigationBar,
     super.key,
-  });
+  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
+        _selectedStepForBottomNavigationBar = selectedStepForBottomNavigationBar;
 
-  final CoffeeMakerStep? selectedStepForBottomNavigationBar;
-  final ValueNotifier<bool> isStoreOnlineNotifier;
+  final CoffeeMakerStep? _selectedStepForBottomNavigationBar;
+  final ValueNotifier<bool> _isStoreOnlineNotifier;
 
   @override
   Widget build(BuildContext context) {
     late String title;
     final store = 'Coffee Maker';
-    final selectedStep = selectedStepForBottomNavigationBar;
+    final selectedStep = _selectedStepForBottomNavigationBar;
     switch (context.screenSize) {
       case WoltScreenSize.small:
-        title = isStoreOnlineNotifier.value && selectedStep != null ? selectedStep.stepName : store;
+        title =
+            _isStoreOnlineNotifier.value && selectedStep != null ? selectedStep.stepName : store;
         break;
       case WoltScreenSize.large:
         title = store;
@@ -45,7 +52,7 @@ class WoltTopBar extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 16),
-              StoreOnlineStatusButton(isStoreOnlineNotifier: isStoreOnlineNotifier),
+              StoreOnlineStatusButton(isStoreOnlineNotifier: _isStoreOnlineNotifier),
             ],
           ),
         ),

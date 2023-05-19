@@ -74,17 +74,17 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
 
   int get _indexOfLastGridContent => columnSpanCells.length - 1;
 
+  double get _totalMarginWidth => margin * 2;
+
   int get _totalColumnCount => columnSpanCells.map((e) => e.columnSpan).reduce((a, b) => a + b);
 
   double get _totalGutterWidth => (_totalColumnCount - 1) * gutter;
 
-  double get _totalMarginWidth => margin * 2;
-
   double _totalWidthWithoutGutterAndMargin(double totalWidth) =>
       totalWidth - _totalGutterWidth - _totalMarginWidth;
 
-  double _columnWidth(double totalWidth) =>
-      _totalWidthWithoutGutterAndMargin(totalWidth) / _totalColumnCount;
+  double _columnWidth(double totalAvailableWidth) =>
+      _totalWidthWithoutGutterAndMargin(totalAvailableWidth) / _totalColumnCount;
 
   double _contentWidth(int columnSpan, double columnWidth) =>
       (columnWidth * columnSpan) + (gutter * (columnSpan - 1));
@@ -93,7 +93,8 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final columnWidth = _columnWidth(constraints.maxWidth);
+        final totalAvailableWidth = constraints.maxWidth;
+        final columnWidth = _columnWidth(totalAvailableWidth);
         return Stack(
           children: [
             Row(
