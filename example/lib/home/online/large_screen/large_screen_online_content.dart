@@ -3,7 +3,7 @@ import 'package:wolt_responsive_layout_grid/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 import 'package:wolt_responsive_layout_grid_example/home/online/large_screen/large_screen_coffee_order_list_section.dart';
 import 'package:wolt_responsive_layout_grid_example/home/online/widgets/coffee_order_list_widget.dart';
-import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_top_bar.dart';
+import 'package:wolt_responsive_layout_grid_example/home/widgets/top_bar.dart';
 
 /// A widget that represents the online content for large screens.
 ///
@@ -38,12 +38,7 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
       body: SafeArea(
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () {
-                setState(() => _isOverlayVisible = !_isOverlayVisible);
-              },
-              child: TopBar(isStoreOnlineNotifier: widget._isStoreOnlineNotifier),
-            ),
+            TopBar(isStoreOnlineNotifier: widget._isStoreOnlineNotifier),
             Expanded(
               child: WoltResponsiveLayoutGrid(
                 margin: 8,

@@ -7,7 +7,7 @@ import 'package:wolt_responsive_layout_grid_example/extensions/build_context_ext
 
 /// The top bar widget is displayed in both offline and online states of the Coffee Maker app.
 ///
-/// The `WoltTopBar` widget consists of a title and a store online status button.
+/// The `TopBar` widget consists of a title and a store online status button.
 /// The title represents the current screen or the name of the store, depending on the screen
 /// size and store online status.
 class TopBar extends StatelessWidget {

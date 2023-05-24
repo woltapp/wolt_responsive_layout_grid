@@ -11,8 +11,8 @@ typedef OnCoffeeMakerStepSelected = void Function(CoffeeMakerStep selectedStep);
 /// This navigation bar displays icons representing different steps of the coffee making process.
 /// It also shows the count of orders for each step, indicated by a badge.
 /// The selected step is highlighted with a different color.
-class HomeScreenBottomNavigationBar extends StatelessWidget {
-  const HomeScreenBottomNavigationBar({
+class SmallScreenBottomNavigationBar extends StatelessWidget {
+  const SmallScreenBottomNavigationBar({
     required CoffeeMakerStep selectedStep,
     required void Function(CoffeeMakerStep) onSelected,
     required GroupedCoffeeOrders groupedCoffeeOrders,

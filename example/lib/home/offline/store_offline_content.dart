@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid_example/constants/demo_app_constants.dart';
-import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_top_bar.dart';
+import 'package:wolt_responsive_layout_grid_example/home/widgets/top_bar.dart';
 
 /// The content displayed when the store is in the offline state.
 class StoreOfflineContent extends StatefulWidget {
@@ -11,7 +11,8 @@ class StoreOfflineContent extends StatefulWidget {
   const StoreOfflineContent({
     required ValueNotifier<bool> isStoreOnlineNotifier,
     Key? key,
-  }) : _isStoreOnlineNotifier = isStoreOnlineNotifier, super(key: key);
+  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
+        super(key: key);
 
   final ValueNotifier<bool> _isStoreOnlineNotifier;
 
@@ -30,8 +31,7 @@ class _StoreOfflineContentState extends State<StoreOfflineContent> {
 
   @override
   Widget build(BuildContext context) {
-    final storeOfflineContent =
-        _StoreOfflineContent(isStoreOnlineNotifier: widget._isStoreOnlineNotifier);
+    final content = _OfflineContent(isStoreOnlineNotifier: widget._isStoreOnlineNotifier);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -49,11 +49,11 @@ class _StoreOfflineContentState extends State<StoreOfflineContent> {
                   smallScreenWidthChild: SizedBox.expand(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: storeOfflineContent,
+                      child: content,
                     ),
                   ),
                   largeScreenWidthChild: WoltResponsiveLayoutGrid.centered(
-                    child: storeOfflineContent,
+                    child: content,
                     centerWidgetColumnCount: 2,
                     paddedColumnCountPerSide: 1,
                     isOverlayVisible: _isOverlayVisible,
@@ -68,8 +68,8 @@ class _StoreOfflineContentState extends State<StoreOfflineContent> {
   }
 }
 
-class _StoreOfflineContent extends StatelessWidget {
-  const _StoreOfflineContent({
+class _OfflineContent extends StatelessWidget {
+  const _OfflineContent({
     required ValueNotifier<bool> isStoreOnlineNotifier,
   }) : _isStoreOnlineNotifier = isStoreOnlineNotifier;
 
