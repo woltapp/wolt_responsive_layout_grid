@@ -26,8 +26,8 @@ class WoltScreenWidthAdaptiveWidget extends StatelessWidget {
     required this.smallScreenWidthChild,
     required this.largeScreenWidthChild,
     this.widthBreakPoint = 768,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   /// The child widget to be displayed when the screen width is below the `widthBreakPoint`.
   final Widget smallScreenWidthChild;

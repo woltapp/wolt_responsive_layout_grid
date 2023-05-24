@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 import 'package:wolt_responsive_layout_grid_example/home/widgets/store_online_status_button.dart';
-import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_custom_divider.dart';
+import 'package:wolt_responsive_layout_grid_example/home/widgets/coffee_maker_custom_divider.dart';
 import 'package:wolt_responsive_layout_grid_example/extensions/build_context_extension.dart';
 
 /// The top bar widget is displayed in both offline and online states of the Coffee Maker app.
@@ -56,7 +56,7 @@ class TopBar extends StatelessWidget {
             ],
           ),
         ),
-        WoltCustomDivider(),
+        CoffeeMakerCustomDivider(),
       ],
     );
   }

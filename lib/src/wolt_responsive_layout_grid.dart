@@ -86,7 +86,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   double _columnWidth(double totalAvailableWidth) =>
       _totalWidthWithoutGutterAndMargin(totalAvailableWidth) / _totalColumnCount;
 
-  double _contentWidth(int columnSpan, double columnWidth) =>
+  double _columnSpanWidth(int columnSpan, double columnWidth) =>
       (columnWidth * columnSpan) + (gutter * (columnSpan - 1));
 
   @override
@@ -104,7 +104,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox(
-                        width: _contentWidth(columnSpanCells[i].columnSpan, columnWidth),
+                        width: _columnSpanWidth(columnSpanCells[i].columnSpan, columnWidth),
                         child: columnSpanCells[i].columnCellWidget,
                       ),
                       if (i != _indexOfLastGridContent) _Gutter(gutter: gutter),

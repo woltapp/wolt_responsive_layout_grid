@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid_example/constants/demo_app_constants.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/grouped_coffee_orders.dart';
-import 'package:wolt_responsive_layout_grid_example/home/widgets/wolt_custom_divider.dart';
+import 'package:wolt_responsive_layout_grid_example/home/widgets/coffee_maker_custom_divider.dart';
 
 typedef OnCoffeeMakerStepSelected = void Function(CoffeeMakerStep selectedStep);
 
@@ -30,7 +30,7 @@ class SmallScreenBottomNavigationBar extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        WoltCustomDivider(),
+        CoffeeMakerCustomDivider(),
         NavigationBar(
           destinations: [
             for (CoffeeMakerStep step in CoffeeMakerStep.values)

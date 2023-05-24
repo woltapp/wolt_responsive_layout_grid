@@ -38,7 +38,12 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
       body: SafeArea(
         child: Column(
           children: [
-            TopBar(isStoreOnlineNotifier: widget._isStoreOnlineNotifier),
+            GestureDetector(
+              onTap: () {
+                setState(() => _isOverlayVisible = !_isOverlayVisible);
+              },
+              child: TopBar(isStoreOnlineNotifier: widget._isStoreOnlineNotifier),
+            ),
             Expanded(
               child: WoltResponsiveLayoutGrid(
                 margin: 8,
