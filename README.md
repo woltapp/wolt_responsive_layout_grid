@@ -95,3 +95,8 @@ WoltScreenWidthAdaptiveWidget(
 ),
 ```
 <img src="https://raw.githubusercontent.com/woltapp/wolt-responsive-layout-grid/main/doc/screen_width_adaptive_widget.gif?raw=true">
+
+## Additional information
+To learn more, you can check the following blog posts:
+- https://careers.wolt.com/en/blog/tech/creating-responsive-layouts-with-woltresponsivelayoutgrid-a-coffeemaker-demo
+- https://careers.wolt.com/en/blog/tech/wolt-responsive-layout-grid-a-solution-for-adaptive-and-consistent-multi
