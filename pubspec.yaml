@@ -1,7 +1,7 @@
 name: wolt_responsive_layout_grid
 description: Build responsive grid layouts with ease.
 version: 0.0.1
-repository: https://github.com/woltapp/wolt-responsive-layout-grid
+repository: https://github.com/woltapp/wolt_responsive_layout_grid
 
 environment:
   sdk: ">=2.19.2 <4.0.0"
