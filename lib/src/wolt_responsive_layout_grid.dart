@@ -14,12 +14,12 @@ const _defaultMargin = 8.0;
 /// For more information, please refer to the official documentation available at "https://m2.material.io/design/layout/responsive-layout-grid.html#grid-customization"
 class WoltResponsiveLayoutGrid extends StatelessWidget {
   const WoltResponsiveLayoutGrid({
+    super.key,
     required this.columnSpanCells,
     this.gutter = _defaultGutter,
     this.margin = _defaultMargin,
     this.isOverlayVisible = false,
-    Key? key,
-  }) : super(key: key);
+  });
 
   /// Creates a centered layout with a child widget and specified column counts.
   ///
@@ -30,20 +30,20 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   /// The [gutter] specifies the spacing between columns, and the [margin] defines the margin around the grid.
   /// The [margin] defines the margin around the grid.
   factory WoltResponsiveLayoutGrid.centered({
+    Key? key,
     required Widget child,
     int centerWidgetColumnCount = 2,
     int paddedColumnCountPerSide = 1,
     bool isOverlayVisible = false,
     double gutter = _defaultGutter,
     double margin = _defaultMargin,
-    Key? key,
   }) {
     return WoltResponsiveLayoutGrid(
       key: key,
       isOverlayVisible: isOverlayVisible,
       columnSpanCells: [
         WoltColumnSpanCell(
-          columnCellWidget: SizedBox.expand(),
+          columnCellWidget: const SizedBox.expand(),
           columnSpan: paddedColumnCountPerSide,
         ),
         WoltColumnSpanCell(
@@ -51,7 +51,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
           columnSpan: centerWidgetColumnCount,
         ),
         WoltColumnSpanCell(
-          columnCellWidget: SizedBox.expand(),
+          columnCellWidget: const SizedBox.expand(),
           columnSpan: paddedColumnCountPerSide,
         ),
       ],
@@ -144,8 +144,8 @@ class _Column extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      child: SizedBox(width: columnWidth, height: double.infinity),
       color: isOverlay ? Colors.red.withOpacity(0.2) : Colors.transparent,
+      child: SizedBox(width: columnWidth, height: double.infinity),
     );
   }
 }
@@ -162,8 +162,8 @@ class _Margin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      child: SizedBox(width: margin, height: double.infinity),
       color: isOverlay ? Colors.green.withOpacity(0.2) : Colors.transparent,
+      child: SizedBox(width: margin, height: double.infinity),
     );
   }
 }
@@ -180,8 +180,8 @@ class _Gutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      child: SizedBox(width: gutter, height: double.infinity),
       color: isOverlay ? Colors.cyan.withOpacity(0.2) : Colors.transparent,
+      child: SizedBox(width: gutter, height: double.infinity),
     );
   }
 }

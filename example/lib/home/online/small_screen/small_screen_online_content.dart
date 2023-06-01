@@ -31,12 +31,7 @@ class SmallScreenOnlineContent extends StatefulWidget {
 }
 
 class _SmallScreenOnlineContentState extends State<SmallScreenOnlineContent> {
-  late CoffeeMakerStep _selectedStepForBottomNavigationBar;
-
-  initState() {
-    super.initState();
-    _selectedStepForBottomNavigationBar = CoffeeMakerStep.grind;
-  }
+  CoffeeMakerStep _selectedStepForBottomNavigationBar = CoffeeMakerStep.grind;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +47,7 @@ class _SmallScreenOnlineContentState extends State<SmallScreenOnlineContent> {
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 color: DemoAppColors.black4,
                 child: widget._coffeeMakerStepListWidgets[_selectedStepForBottomNavigationBar]!,
               ),

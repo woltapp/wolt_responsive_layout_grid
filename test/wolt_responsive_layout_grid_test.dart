@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wolt_responsive_layout_grid/src/wolt_responsive_layout_grid.dart';
 import 'package:wolt_responsive_layout_grid/src/wolt_column_span_cell.dart';
+import 'package:wolt_responsive_layout_grid/src/wolt_responsive_layout_grid.dart';
 
 import 'utils/screen_size_utils.dart';
 
@@ -29,8 +29,8 @@ void main() {
         ),
       ];
       setTestScreenWidth(tester, 768);
-      await tester.pumpWidget(MediaQuery(
-        data: const MediaQueryData(),
+      await tester.pumpWidget(const MediaQuery(
+        data: MediaQueryData(),
         child: MaterialApp(
           home: Scaffold(
             body: WoltResponsiveLayoutGrid(
@@ -53,9 +53,9 @@ void main() {
         child: MaterialApp(
           home: Scaffold(
             body: WoltResponsiveLayoutGrid.centered(
-              child: Placeholder(key: secondGridContentKey),
               centerWidgetColumnCount: 2,
               paddedColumnCountPerSide: 1,
+              child: const Placeholder(key: secondGridContentKey),
             ),
           ),
         ),
