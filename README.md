@@ -19,9 +19,7 @@ __Screen Width Adaptation__: The WoltScreenWidthAdaptiveWidget allows developers
 
 __Overlay for Visual Debugging__: During development, it's often helpful to have a visual representation of the grid layout to fine-tune and verify its structure. The Wolt Responsive Layout Grid library includes an overlay feature that enables you to visualize the grid layout. This overlay renders colored boxes for each column and gutter, making it easier to debug and ensure proper alignment. The overlay can be enabled or disabled based on debugging needs.
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this plugin, add `wolt_responsive_layout_grid` as a dependency in your pubspec.yaml file.
 
 ## Usage
 ### WoltResponsiveLayoutGrid
@@ -96,3 +94,4 @@ WoltScreenWidthAdaptiveWidget(
   largeScreenWidthChild: Text(isOnline ? 'Online' : 'Offline'),
 ),
 ```
+<img width=300 src="https://raw.githubusercontent.com/woltapp/wolt-responsive-layout-grid/main/doc/screen_width_adaptive_widget.gif?raw=true">
