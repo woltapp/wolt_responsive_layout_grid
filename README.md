@@ -94,4 +94,4 @@ WoltScreenWidthAdaptiveWidget(
   largeScreenWidthChild: Text(isOnline ? 'Online' : 'Offline'),
 ),
 ```
-<img width=300 src="https://raw.githubusercontent.com/woltapp/wolt-responsive-layout-grid/main/doc/screen_width_adaptive_widget.gif?raw=true">
+<img src="https://raw.githubusercontent.com/woltapp/wolt-responsive-layout-grid/main/doc/screen_width_adaptive_widget.gif?raw=true">
