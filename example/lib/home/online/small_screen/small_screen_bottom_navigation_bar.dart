@@ -29,8 +29,8 @@ class SmallScreenBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: [
-        CoffeeMakerCustomDivider(),
+      children: <Widget>[
+        const CoffeeMakerCustomDivider(),
         NavigationBar(
           destinations: [
             for (CoffeeMakerStep step in CoffeeMakerStep.values)

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wolt_responsive_layout_grid_example/constants/demo_app_constants.dart';
 import 'package:wolt_responsive_layout_grid_example/entities/coffee_order.dart';
@@ -8,19 +9,23 @@ import 'package:wolt_responsive_layout_grid_example/entities/coffee_order.dart';
 /// The `onSelected` callback is invoked when the tile is tapped.
 class CoffeeOrderListItemTile extends StatelessWidget {
   const CoffeeOrderListItemTile({
+    super.key,
     required CoffeeOrder coffeeOrder,
     required void Function(String) onSelected,
-    super.key,
   })  : _onSelected = onSelected,
         _coffeeOrder = coffeeOrder;
 
   final CoffeeOrder _coffeeOrder;
   final ValueChanged<String> _onSelected;
 
-  VoidCallback get onTap => () {
+  VoidCallback get onTap {
+    return () {
+      if (kDebugMode) {
         print("Selected coffee order: ${_coffeeOrder.id}");
-        _onSelected(_coffeeOrder.id);
-      };
+      }
+      _onSelected(_coffeeOrder.id);
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +39,25 @@ class CoffeeOrderListItemTile extends StatelessWidget {
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: Stack(
               children: [
-                Image(image: AssetImage(step.assetName), fit: BoxFit.cover, width: double.infinity),
+                Image(
+                  image: AssetImage(step.assetName),
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
                 Container(color: DemoAppColors.black.withOpacity(0.3)),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       _CoffeeOrderListItemDetails(
                         coffeeOrder: _coffeeOrder,
                         onTap: onTap,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       SizedBox(
                         height: 56,
                         child: OutlinedButton(
+                          onPressed: onTap,
                           child: Center(
                             child: Text(
                               step.actionName,
@@ -55,7 +65,6 @@ class CoffeeOrderListItemTile extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          onPressed: onTap,
                         ),
                       ),
                     ],
@@ -77,7 +86,8 @@ class _CoffeeOrderListItemDetails extends StatelessWidget {
   const _CoffeeOrderListItemDetails({
     required CoffeeOrder coffeeOrder,
     required void Function() onTap,
-  }) : _onTap = onTap, _coffeeOrder = coffeeOrder;
+  })  : _onTap = onTap,
+        _coffeeOrder = coffeeOrder;
 
   final CoffeeOrder _coffeeOrder;
   final VoidCallback _onTap;
@@ -90,7 +100,10 @@ class _CoffeeOrderListItemDetails extends StatelessWidget {
           onPressed: _onTap,
           child: Text(
             _coffeeOrder.id,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall!
+                .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
         const SizedBox(width: 8),

@@ -9,7 +9,7 @@ void main() {
       'WoltScreenWidthAdaptiveWidget displays small screen child when width is below breakpoint',
       (WidgetTester tester) async {
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: Center(
             child: WoltScreenWidthAdaptiveWidget(
@@ -34,7 +34,7 @@ void main() {
       'WoltScreenWidthAdaptiveWidget displays large screen child when width is equal to or above breakpoint',
       (WidgetTester tester) async {
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: Center(
             child: WoltScreenWidthAdaptiveWidget(

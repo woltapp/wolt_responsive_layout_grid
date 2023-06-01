@@ -1,3 +1,6 @@
+// ignore_for_file: deprecated_member_use
+// TODO: Refactor to update deprecated APIs.
+
 import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';

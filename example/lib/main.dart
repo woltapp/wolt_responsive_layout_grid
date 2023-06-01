@@ -24,7 +24,7 @@ class _DemoAppState extends State<DemoApp> {
   void initState() {
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      const SystemUiOverlayStyle(
         systemNavigationBarIconBrightness: Brightness.dark,
         systemNavigationBarDividerColor: DemoAppColors.white,
         systemNavigationBarColor: DemoAppColors.white,
@@ -65,8 +65,8 @@ class _DemoAppState extends State<DemoApp> {
             foregroundColor: DemoAppColors.black,
             backgroundColor: DemoAppColors.white,
             surfaceTintColor: DemoAppColors.white,
-            fixedSize: Size.fromHeight(36),
-            padding: EdgeInsets.all(12),
+            fixedSize: const Size.fromHeight(36),
+            padding: const EdgeInsets.all(12),
             visualDensity: VisualDensity.compact,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             side: BorderSide.none,

@@ -23,9 +23,9 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String title;
-    final store = 'Coffee Maker';
+    const store = 'Coffee Maker';
     final selectedStep = _selectedStepForBottomNavigationBar;
+    late String title;
     switch (context.screenSize) {
       case WoltScreenSize.small:
         title =
@@ -38,7 +38,7 @@ class TopBar extends StatelessWidget {
 
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: [
+      children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(16) - const EdgeInsets.only(bottom: 4),
           child: Row(
@@ -51,12 +51,12 @@ class TopBar extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               StoreOnlineStatusButton(isStoreOnlineNotifier: _isStoreOnlineNotifier),
             ],
           ),
         ),
-        CoffeeMakerCustomDivider(),
+        const CoffeeMakerCustomDivider(),
       ],
     );
   }

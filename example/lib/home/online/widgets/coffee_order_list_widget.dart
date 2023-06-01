@@ -30,12 +30,13 @@ class CoffeeOrderListWidget extends StatelessWidget {
               final coffeeOrder = coffeeOrders[index];
               return Column(
                 children: [
-                  if (index == 0) SizedBox(height: 16),
+                  if (index == 0) const SizedBox(height: 16),
                   CoffeeOrderListItemTile(
                     coffeeOrder: coffeeOrder,
                     onSelected: _onCoffeeOrderSelected,
                   ),
-                  if (index == coffeeOrders.length - 1) SizedBox(height: 16),
+                  if (index == coffeeOrders.length - 1)
+                    const SizedBox(height: 16),
                 ],
               );
             },

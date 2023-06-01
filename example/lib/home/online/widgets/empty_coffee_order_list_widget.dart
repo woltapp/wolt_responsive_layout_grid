@@ -8,8 +8,8 @@ import 'package:wolt_responsive_layout_grid_example/entities/coffee_maker_step.d
 /// or orders available for that step.
 class EmptyCoffeeOrderList extends StatelessWidget {
   const EmptyCoffeeOrderList({
-    required this.coffeeMakerStep,
     super.key,
+    required this.coffeeMakerStep,
   });
 
   final CoffeeMakerStep coffeeMakerStep;
@@ -17,7 +17,7 @@ class EmptyCoffeeOrderList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WoltScreenWidthAdaptiveWidget(
-      largeScreenWidthChild: SizedBox.shrink(),
+      largeScreenWidthChild: const SizedBox.shrink(),
       smallScreenWidthChild: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
@@ -25,10 +25,13 @@ class EmptyCoffeeOrderList extends StatelessWidget {
           children: [
             Text(
               coffeeMakerStep.title,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(
               'New tasks will appear here automatically',
               style: Theme.of(context).textTheme.bodyMedium,

@@ -18,8 +18,14 @@ class StoreOnlineStatusButton extends StatelessWidget {
       valueListenable: _isStoreOnlineNotifier,
       builder: (__, isOnline, _) {
         return OutlinedButton(
+          style: Theme.of(context).outlinedButtonTheme.style!.copyWith(
+                side: const MaterialStatePropertyAll(BorderSide(width: 2, color: DemoAppColors.gray)),
+              ),
+          onPressed: () {
+            _isStoreOnlineNotifier.value = !_isStoreOnlineNotifier.value;
+          },
           child: Row(
-            children: [
+            children: <Widget>[
               SizedBox.square(
                   dimension: 12,
                   child: DecoratedBox(
@@ -28,19 +34,13 @@ class StoreOnlineStatusButton extends StatelessWidget {
                       color: isOnline ? DemoAppColors.green : DemoAppColors.red,
                     ),
                   )),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               WoltScreenWidthAdaptiveWidget(
-                smallScreenWidthChild: Icon(Icons.store, size: 16, color: DemoAppColors.black),
+                smallScreenWidthChild: const Icon(Icons.store, size: 16, color: DemoAppColors.black),
                 largeScreenWidthChild: Text(isOnline ? 'Online' : 'Offline'),
               ),
             ],
           ),
-          style: Theme.of(context).outlinedButtonTheme.style!.copyWith(
-                side: MaterialStatePropertyAll(BorderSide(width: 2, color: DemoAppColors.gray)),
-              ),
-          onPressed: () {
-            _isStoreOnlineNotifier.value = !_isStoreOnlineNotifier.value;
-          },
         );
       },
     );

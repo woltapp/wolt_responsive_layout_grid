@@ -10,12 +10,11 @@ class HomeScreen extends StatefulWidget {
   /// The [groupedCoffeeOrders] represents the grouped coffee orders to be displayed on the screen.
   /// The [isStoreOnline] indicates whether the store is currently in the online state.
   const HomeScreen({
+    super.key,
     required GroupedCoffeeOrders groupedCoffeeOrders,
     required bool isStoreOnline,
-    Key? key,
   })  : _groupedCoffeeOrders = groupedCoffeeOrders,
-        _isStoreOnline = isStoreOnline,
-        super(key: key);
+        _isStoreOnline = isStoreOnline;
 
   final GroupedCoffeeOrders _groupedCoffeeOrders;
   final bool _isStoreOnline;

@@ -10,9 +10,9 @@ import 'package:wolt_responsive_layout_grid_example/home/online/widgets/coffee_o
 /// The list of coffee orders is provided by the [_coffeeOrderListWidget].
 class LargeScreenCoffeeOrderListSection extends StatelessWidget {
   const LargeScreenCoffeeOrderListSection({
+    super.key,
     required CoffeeOrderListWidget coffeeOrderListWidget,
     required CoffeeMakerStep coffeeMakerStep,
-    super.key,
   })  : _coffeeMakerStep = coffeeMakerStep,
         _coffeeOrderListWidget = coffeeOrderListWidget;
 
@@ -31,11 +31,11 @@ class LargeScreenCoffeeOrderListSection extends StatelessWidget {
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             color: _coffeeMakerStep == CoffeeMakerStep.ready ? DemoAppColors.white : null,
             decoration: _coffeeMakerStep == CoffeeMakerStep.ready
                 ? null
-                : ShapeDecoration(
+                : const ShapeDecoration(
                     color: DemoAppColors.black4,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: DemoAppColors.white, width: 2),
@@ -69,9 +69,9 @@ class _LargeScreenCoffeeOrderListHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-      margin: EdgeInsets.only(top: 16, bottom: 8),
-      decoration: ShapeDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      margin: const EdgeInsets.only(top: 16, bottom: 8),
+      decoration: const ShapeDecoration(
         shape: StadiumBorder(side: BorderSide(color: DemoAppColors.gray, width: 2)),
         color: DemoAppColors.white,
       ),

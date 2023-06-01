@@ -9,10 +9,9 @@ class StoreOfflineContent extends StatefulWidget {
   ///
   /// The [isStoreOnlineNotifier] is a [ValueNotifier] that tracks the online state of the store.
   const StoreOfflineContent({
+    super.key,
     required ValueNotifier<bool> isStoreOnlineNotifier,
-    Key? key,
-  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
-        super(key: key);
+  })  : _isStoreOnlineNotifier = isStoreOnlineNotifier;
 
   final ValueNotifier<bool> _isStoreOnlineNotifier;
 
@@ -21,13 +20,7 @@ class StoreOfflineContent extends StatefulWidget {
 }
 
 class _StoreOfflineContentState extends State<StoreOfflineContent> {
-  late bool _isOverlayVisible;
-
-  @override
-  void initState() {
-    super.initState();
-    _isOverlayVisible = false;
-  }
+  bool _isOverlayVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +46,10 @@ class _StoreOfflineContentState extends State<StoreOfflineContent> {
                     ),
                   ),
                   largeScreenWidthChild: WoltResponsiveLayoutGrid.centered(
-                    child: content,
                     centerWidgetColumnCount: 2,
                     paddedColumnCountPerSide: 1,
                     isOverlayVisible: _isOverlayVisible,
+                    child: content,
                   ),
                 ),
               ),
@@ -100,9 +93,9 @@ class _OfflineContent extends StatelessWidget {
           height: 56,
           child: OutlinedButton(
             onPressed: () => _isStoreOnlineNotifier.value = true,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: const Text(
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: Text(
                 'Go online',
                 style: TextStyle(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,

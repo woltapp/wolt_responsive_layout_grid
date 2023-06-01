@@ -27,6 +27,7 @@ class StoreOnlineContent extends StatefulWidget {
 class _StoreOnlineContentState extends State<StoreOnlineContent> {
   late GroupedCoffeeOrders _orders;
 
+  @override
   initState() {
     super.initState();
     _orders = widget._groupedCoffeeOrders;

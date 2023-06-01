@@ -12,6 +12,7 @@ import 'package:wolt_responsive_layout_grid_example/home/widgets/top_bar.dart';
 /// The [isStoreOnlineNotifier] is a [ValueNotifier] that notifies the widget of changes in the store's online status.
 class LargeScreenOnlineContent extends StatefulWidget {
   const LargeScreenOnlineContent({
+    super.key,
     required Map<CoffeeMakerStep, CoffeeOrderListWidget> coffeeMakerStepListWidgets,
     required ValueNotifier<bool> isStoreOnlineNotifier,
   })  : _isStoreOnlineNotifier = isStoreOnlineNotifier,
@@ -28,16 +29,11 @@ class _LargeScreenOnlineContentState extends State<LargeScreenOnlineContent> {
   bool _isOverlayVisible = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [
+          children: <Widget>[
             GestureDetector(
               onTap: () {
                 setState(() => _isOverlayVisible = !_isOverlayVisible);
