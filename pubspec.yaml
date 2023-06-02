@@ -1,6 +1,6 @@
 name: wolt_responsive_layout_grid
 description: Wolt Responsive Layout Grid library helps you to create dynamic, adaptive grid layouts that seamlessly adjust to various screen sizes.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/woltapp/wolt_responsive_layout_grid
 
 environment:
