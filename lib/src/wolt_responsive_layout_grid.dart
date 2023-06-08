@@ -19,6 +19,9 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     this.gutter = _defaultGutter,
     this.margin = _defaultMargin,
     this.isOverlayVisible = false,
+    this.gutterColor= Colors.transparent,
+    this.startMarginColor= Colors.transparent,
+    this.endMarginColor= Colors.transparent,
   });
 
   /// Creates a centered layout with a child widget and specified column counts.
@@ -29,6 +32,9 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   /// The [isOverlayVisible] flag determines whether an overlay for debugging purposes is displayed.
   /// The [gutter] specifies the spacing between columns, and the [margin] defines the margin around the grid.
   /// The [margin] defines the margin around the grid.
+  /// The [gutterColor] defines the color of the gutter.
+  /// The [startMarginColor] defines the color of the start margin.
+  /// The [endMarginColor] defines the color of the end margin.
   factory WoltResponsiveLayoutGrid.centered({
     Key? key,
     required Widget child,
@@ -37,6 +43,9 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     bool isOverlayVisible = false,
     double gutter = _defaultGutter,
     double margin = _defaultMargin,
+    Color gutterColor= Colors.transparent,
+    Color startMarginColor= Colors.transparent,
+    Color endMarginColor= Colors.transparent,
   }) {
     return WoltResponsiveLayoutGrid(
       key: key,
@@ -57,6 +66,9 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
       ],
       gutter: gutter,
       margin: margin,
+      gutterColor: gutterColor,
+      startMarginColor: startMarginColor,
+      endMarginColor: endMarginColor ,
     );
   }
 
@@ -71,6 +83,9 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
 
   /// Determines whether an overlay for debugging purposes is visible.
   final bool isOverlayVisible;
+
+  /// The background colors of the gutter and margin.
+  final Color gutterColor, startMarginColor, endMarginColor;
 
   int get _indexOfLastGridContent => columnSpanCells.length - 1;
 
@@ -99,7 +114,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
           children: [
             Row(
               children: [
-                _Margin(margin: margin),
+                _Margin(margin: margin,backgroundColor: startMarginColor),
                 for (int i = 0; i < columnSpanCells.length; i++)
                   Row(
                     children: [
@@ -107,22 +122,22 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
                         width: _columnSpanWidth(columnSpanCells[i].columnSpan, columnWidth),
                         child: columnSpanCells[i].columnCellWidget,
                       ),
-                      if (i != _indexOfLastGridContent) _Gutter(gutter: gutter),
+                      if (i != _indexOfLastGridContent) _Gutter(gutter: gutter,backgroundColor: gutterColor),
                     ],
                   ),
-                _Margin(margin: margin),
+                _Margin(margin: margin,backgroundColor: endMarginColor),
               ],
             ),
             if (isOverlayVisible)
               Row(
                 children: [
-                  _Margin(margin: margin, isOverlay: true),
+                  _Margin(margin: margin, isOverlay: true,backgroundColor: startMarginColor),
                   for (int i = 0; i < _totalColumnCount; i++)
                     Row(children: [
                       _Column(columnWidth: columnWidth, isOverlay: true),
-                      if (i != _totalColumnCount - 1) _Gutter(gutter: gutter, isOverlay: true),
+                      if (i != _totalColumnCount - 1) _Gutter(gutter: gutter, isOverlay: true,backgroundColor: gutterColor),
                     ]),
-                  _Margin(margin: margin, isOverlay: true),
+                  _Margin(margin: margin, isOverlay: true,backgroundColor: endMarginColor),
                 ],
               ),
           ],
@@ -153,16 +168,18 @@ class _Column extends StatelessWidget {
 class _Margin extends StatelessWidget {
   const _Margin({
     required this.margin,
+    required this.backgroundColor,
     this.isOverlay = false,
   });
 
   final double margin;
   final bool isOverlay;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: isOverlay ? Colors.green.withOpacity(0.2) : Colors.transparent,
+      color: isOverlay ? Colors.green.withOpacity(0.2) : backgroundColor,
       child: SizedBox(width: margin, height: double.infinity),
     );
   }
@@ -171,16 +188,18 @@ class _Margin extends StatelessWidget {
 class _Gutter extends StatelessWidget {
   const _Gutter({
     required this.gutter,
+    required this.backgroundColor,
     this.isOverlay = false,
   });
 
   final double gutter;
   final bool isOverlay;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: isOverlay ? Colors.cyan.withOpacity(0.2) : Colors.transparent,
+      color: isOverlay ? Colors.cyan.withOpacity(0.2) : backgroundColor,
       child: SizedBox(width: gutter, height: double.infinity),
     );
   }
