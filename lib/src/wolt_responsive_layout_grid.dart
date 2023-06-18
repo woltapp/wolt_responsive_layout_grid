@@ -83,7 +83,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   double _totalWidthWithoutGutterAndMargin(double totalWidth) =>
       totalWidth - _totalGutterWidth - _totalMarginWidth;
 
-  double _columnWidth(double totalAvailableWidth) =>
+  double columnWidth(double totalAvailableWidth) =>
       _totalWidthWithoutGutterAndMargin(totalAvailableWidth) / _totalColumnCount;
 
   double _columnSpanWidth(int columnSpan, double columnWidth) =>
@@ -94,7 +94,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final totalAvailableWidth = constraints.maxWidth;
-        final columnWidth = _columnWidth(totalAvailableWidth);
+        final widthPerColumn = columnWidth(totalAvailableWidth);
         return Stack(
           children: [
             Row(
@@ -104,7 +104,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox(
-                        width: _columnSpanWidth(columnSpanCells[i].columnSpan, columnWidth),
+                        width: _columnSpanWidth(columnSpanCells[i].columnSpan, widthPerColumn),
                         child: columnSpanCells[i].columnCellWidget,
                       ),
                       if (i != _indexOfLastGridContent) _Gutter(gutter: gutter),
@@ -119,7 +119,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
                   _Margin(margin: margin, isOverlay: true),
                   for (int i = 0; i < _totalColumnCount; i++)
                     Row(children: [
-                      _Column(columnWidth: columnWidth, isOverlay: true),
+                      _Column(columnWidth: widthPerColumn, isOverlay: true),
                       if (i != _totalColumnCount - 1) _Gutter(gutter: gutter, isOverlay: true),
                     ]),
                   _Margin(margin: margin, isOverlay: true),
