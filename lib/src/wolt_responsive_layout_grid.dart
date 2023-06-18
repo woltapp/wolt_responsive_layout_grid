@@ -83,6 +83,7 @@ class WoltResponsiveLayoutGrid extends StatelessWidget {
   double _totalWidthWithoutGutterAndMargin(double totalWidth) =>
       totalWidth - _totalGutterWidth - _totalMarginWidth;
 
+  /// Returns the width of a single column.
   double columnWidth(double totalAvailableWidth) =>
       _totalWidthWithoutGutterAndMargin(totalAvailableWidth) / _totalColumnCount;
 

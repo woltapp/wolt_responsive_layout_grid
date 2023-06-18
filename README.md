@@ -98,5 +98,5 @@ WoltScreenWidthAdaptiveWidget(
 
 ## Additional information
 To learn more, you can check the following blog posts:
-- https://careers.wolt.com/en/blog/tech/creating-responsive-layouts-with-woltresponsivelayoutgrid-a-coffeemaker-demo
-- https://careers.wolt.com/en/blog/tech/wolt-responsive-layout-grid-a-solution-for-adaptive-and-consistent-multi
+- [Technical implementation details of the package](https://careers.wolt.com/en/blog/tech/wolt-responsive-layout-grid-a-solution-for-adaptive-and-consistent-multi)
+- [CoffeeMaker demo app with the package](https://careers.wolt.com/en/blog/tech/creating-responsive-layouts-with-woltresponsivelayoutgrid-a-coffeemaker-demo)
