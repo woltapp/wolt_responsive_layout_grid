@@ -1,3 +1,8 @@
+[![pub package](https://img.shields.io/pub/v/wolt_responsive_layout_grid.svg)](https://pub.dev/packages/wolt_responsive_layout_grid)
+[![package publisher](https://img.shields.io/pub/publisher/wolt_responsive_layout_grid.svg)](https://pub.dev/packages/wolt_responsive_layout_grid/publisher)
+
+# WoltResponsiveLayoutGrid
+
 Creating responsive grid layouts in Flutter applications can be a challenging task. Developers often struggle with achieving consistent and adaptive designs across various screen sizes and orientations. With the Wolt Responsive Layout Grid library, building responsive grid layouts becomes much simpler.
 
 Wolt Responsive Layout Grid library introduces the Flutter implementation of [Material Design's responsive layout grid](https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins). It provides a unified, multi-platform grid system that ensures consistency and visual integrity regardless of the device or operating system being used.
